@@ -34,10 +34,9 @@ Both fonts are free to download. Always use these two fonts; do not substitute w
 ## Logo Usage
 
 ### Versions
-| Version                 | Description | Use Case             | Source                             |
-|----------------------|----------------------|-----------------------------------------------------|
-| **Plus Jakarta Sans** | Primary / Headings  | https://fonts.google.com/specimen/Plus+Jakarta+Sans |
-| **Glacial Indifference** | Secondary / Body | https://www.1001fonts.com/glacial-indifference-font.html |
+
+| Version              | Description          | Use Case             | Source                       |
+|----------------------|----------------------|----------------------|------------------------------|
 | **Primary Logo** | REVA wordmark + Srivatsa symbol on white/light background | use by default | https://upload.wikimedia.org/wikipedia/commons/5/5f/REVA_University_Bangalore.png |
 | **Reverse Logo** | Full white logo on REVA Orange (`#f7a35b`) background | use when background is dark or clashes with primary colours | https://upload.wikimedia.org/wikipedia/commons/5/5f/REVA_University_Bangalore.png |
 
