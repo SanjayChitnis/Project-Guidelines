@@ -1,0 +1,44 @@
+System:
+  Kernel: 6.8.0-101-generic arch: x86_64 bits: 64 compiler: gcc v: 13.3.0
+  Console: pty pts/0 Distro: Ubuntu 24.04.4 LTS (Noble Numbat)
+Machine:
+  Type: Kvm System: KubeVirt product: N/A v: RHEL-9.6.0 PC (Q35 + ICH9, 2009)
+    serial: N/A
+  Mobo: Red Hat model: RHEL v: RHEL-9.6.0 PC (Q35 + ICH9, 2009) serial: N/A
+    BIOS: SeaBIOS v: 1.16.3-4.el9 date: 04/01/2014
+CPU:
+  Info: single core model: Intel Xeon E312xx (Sandy Bridge IBRS update) bits: 64
+    arch: Sandy Bridge rev: 1 cache: L1: 64 KiB L2: 4 MiB L3: 16 MiB
+  Speed (MHz): 3600 min/max: N/A core: 1: 3600 bogomips: 7199
+  Flags: avx lm nx pae sse sse2 sse3 sse4_1 sse4_2 ssse3
+Graphics:
+  Device-1: vendor: Red Hat driver: N/A bus-ID: 00:01.0
+  Display: server: No display server data found. Headless machine? tty: 88x15
+  API: EGL v: 1.5 drivers: swrast platforms: active: surfaceless,device
+    inactive: gbm,wayland,x11
+  API: OpenGL v: 4.5 vendor: mesa v: 25.2.8-0ubuntu0.24.04.1
+    note: console (EGL sourced) renderer: llvmpipe (LLVM 20.1.2 256 bits)
+Audio:
+  Message: No device data found.
+  API: ALSA v: k6.8.0-101-generic status: inactive
+Network:
+  Device-1: Red Hat Virtio 1.0 network driver: virtio-pci v: 1 port: N/A
+    bus-ID: 01:00.0
+  IF-ID-1: docker0 state: down mac: <filter>
+  IF-ID-2: enp1s0 state: up speed: -1 duplex: unknown mac: <filter>
+Drives:
+  Local Storage: total: 20 GiB used: 5.66 GiB (28.3%)
+  ID-1: /dev/vda model: N/A size: 20 GiB
+Partition:
+  ID-1: / size: 18.33 GiB used: 5.54 GiB (30.2%) fs: ext4 dev: /dev/vda1
+  ID-2: /boot size: 880.4 MiB used: 116.3 MiB (13.2%) fs: ext4 dev: /dev/vda16
+  ID-3: /boot/efi size: 104.3 MiB used: 6.1 MiB (5.9%) fs: vfat dev: /dev/vda15
+Swap:
+  ID-1: swap-1 type: file size: 1024 MiB used: 0 KiB (0.0%) file: /swapfile
+Sensors:
+  Src: lm-sensors+/sys Message: No sensor data found using /sys/class/hwmon or
+    lm-sensors.
+Info:
+  Memory: total: 2 GiB available: 1.86 GiB used: 552.6 MiB (29.0%)
+  Processes: 125 Uptime: 52m Init: systemd target: graphical (5)
+  Packages: 919 Compilers: gcc: 13.3.0 Shell: Bash v: 5.2.21 inxi: 3.3.34
