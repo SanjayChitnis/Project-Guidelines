@@ -1,0 +1,58 @@
+{
+  "name": "patent-generator",
+  "version": "0.1.0",
+  "description": "Plugin to extract, brainstorm, and generate Indian patent applications from project documents (PDF, Word, MD)",
+  "main": "SKILL.md",
+  "author": "AI Innovation Coach",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "patent-input",
+      "description": "Accept and validate Markdown input file.",
+      "workflow": "workflows/01_input.md",
+      "instructions": "workflows/01_input.instructions.md"
+    },
+    {
+      "name": "patent-extract",
+      "description": "Extract invention details from Markdown.",
+      "workflow": "workflows/02_extract.md",
+      "instructions": "workflows/02_extract.instructions.md"
+    },
+    {
+      "name": "patent-patentability",
+      "description": "Check patentability and flag weak/missing sections.",
+      "workflow": "workflows/03_patentability.md",
+      "instructions": "workflows/03_patentability.instructions.md"
+    },
+    {
+      "name": "patent-prior-art",
+      "description": "Simulate prior art search and novelty brainstorming.",
+      "workflow": "workflows/04_prior_art.md",
+      "instructions": "workflows/04_prior_art.instructions.md"
+    },
+    {
+      "name": "patent-score",
+      "description": "Score patentability and grant likelihood.",
+      "workflow": "workflows/05_scoring.md",
+      "instructions": "workflows/05_scoring.instructions.md"
+    },
+    {
+      "name": "patent-draft-template",
+      "description": "Pre-fill and generate patent application template.",
+      "workflow": "workflows/06_draft_template.md",
+      "instructions": "workflows/06_draft_template.instructions.md"
+    },
+    {
+      "name": "patent-application",
+      "description": "Assemble draft Indian patent application.",
+      "workflow": "workflows/07_application.md",
+      "instructions": "workflows/07_application.instructions.md"
+    },
+    {
+      "name": "patent-export",
+      "description": "Guide export and filing preparation.",
+      "workflow": "workflows/08_export.md",
+      "instructions": "workflows/08_export.instructions.md"
+    }
+  ]
+}
