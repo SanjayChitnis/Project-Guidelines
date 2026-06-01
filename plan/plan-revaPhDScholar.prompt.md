@@ -36,6 +36,8 @@ Collect/author these before plugin files can be finalized:
 | `rules/RESEARCH_ETHICS.md` | Plagiarism thresholds, authorship norms, RPE course content, SIGSOFT standards from CSE Handbook |
 | `rules/SCHOOL_ROUTING.md` | Branch detection → loads CSE materials; graceful placeholder message for other branches |
 | `rules/PUBLICATION_STANDARDS.md` | Journal tier guidance, predatory red flags, UGC CARE list, conference tiers |
+| `rules/WELLBEING_STANDARD.md` | When to suggest a break vs. escalate; PhD-specific mental health red flags; self-care protocol; signposting to REVA counselling and REVA's `kaizen-wellbeing-reva` plugin |
+| `rules/IKIGAI_ALIGNMENT.md` | Defines ikigai check triggers (onboarding, stage transitions, signs of disengagement); ensures research topic and career goals remain coherently connected throughout the programme |
 
 ---
 
@@ -58,6 +60,10 @@ Collect/author these before plugin files can be finalized:
 | `agents/scholar/patent-agent.md` | 6 | Invokes `patent-generator` workflows — no duplication; adapts for scholar context |
 | `agents/scholar/grant-agent.md` | 7 | India grant calendar, SERB/DST/DBT/ICMR proposal structures; adapts `research-reva` funding workflows |
 | `agents/scholar/book-agent.md` | 8 | Research monograph / book proposal, publisher targeting, chapter outline |
+| `agents/scholar/daily-planner.md` | All | Breaks current milestone into weekly/daily micro-tasks (2–4 hrs each); anti-procrastination nudges; tracks completion; surfaces next doable step on every session open |
+| `agents/scholar/blocker-breaker.md` | All | "I'm stuck" triage: classifies blocker as conceptual / methodological / motivational / regulatory / interpersonal → routes to targeted help, worked examples, or escalation path |
+| `agents/scholar/wellness-companion.md` | All | Immediate wellbeing check-ins; PhD-specific stress/anxiety patterns; actionable self-care nudges; escalation path to REVA counselling; references `kaizen-wellbeing-reva` plugin for deeper support |
+| `agents/scholar/ikigai-compass.md` | All | Research–ikigai alignment checks: connects topic, domain expertise, passion, and societal impact; revisited at onboarding and each major stage transition |
 
 **Guide agent (1):**
 - `agents/guide/guide-advisor.md` — Activated by `/guide`; scholar roster view, progress alerts, feedback protocol templates, co-guide coordination
@@ -69,7 +75,7 @@ Collect/author these before plugin files can be finalized:
 | File | Covers |
 |---|---|
 | `workflows/00_onboarding.md` | Profile setup: school, batch, provisional registration date, candidate type (sets credit pathway), guide name, current stage |
-| `workflows/01_entrance-prep.md` | Topic ideation, guide identification, entrance test prep (RM + subject-specific split) |
+| `workflows/01_entrance-prep.md` | Topic ideation, guide identification, entrance test prep (RM + subject-specific split); **interview coaching: mock Q&A, research interest articulation, 10-minute presentation dry-run** |
 | `workflows/02_coursework.md` | Course schedule per pathway, credit tracking, IA-I/IA-II/CWEE preparation |
 | `workflows/03_synopsis.md` | Synopsis template walkthrough, colloquium presentation coaching |
 | `workflows/04_research-cycle.md` | Biannual review cycles, experiment logging, lit review protocol |
@@ -80,18 +86,58 @@ Collect/author these before plugin files can be finalized:
 | `workflows/09_book-proposal.md` | Publisher targeting, chapter outline, audience scoping |
 | `workflows/10_guide-dashboard.md` | `/guide` mode: scholar roster, milestone status, feedback templates, co-guide notes |
 | `workflows/11_session-closer.md` | End-of-session memory capture, next action items, milestone date refresh |
+| `workflows/12_daily-standup.md` | Quick daily/weekly micro-planning: yesterday / today / blockers; outputs 3 small doable tasks; feeds `daily-planner.md` agent |
+| `workflows/13_stuck-triage.md` | "Help, I'm stuck" protocol: blocker classification → targeted intervention (concept explainer, methodology coach, motivational reframe, regulation lookup, or guide escalation) |
+| `workflows/14_wellness-checkin.md` | Periodic wellbeing pulse (PhD stress indicators, isolation, imposter syndrome, burnout signals); actionable nudges; escalation path to REVA support services |
+| `workflows/15_ikigai-audit.md` | Research–purpose alignment review: passion × strength × world-need × career goal; conducted at onboarding and annually at each biannual review |
 
 ---
 
 ## Phase 5 — Context & Memory Templates
 
-**`context/` (3 example files — committed):**
-- `scholar-profile.md.example` — school, batch, provisional registration date, candidate type, guide, stage
+**`context/` (4 example files — committed):**
+- `scholar-profile.md.example` — school, batch, provisional registration date, candidate type, guide, stage; ikigai fields: passion areas, domain strengths, societal need, career goal
 - `research-tracker.md.example` — milestone log, biannual review dates, computed deadline table, pending actions
 - `publication-pipeline.md.example` — paper title, target venue, submission status, deadline
+- `daily-log.md.example` — current micro-task list, blocker notes, daily standup history (last 7 days)
 
-**`memory/` (gitignored, 4 live files per scholar instance):**
-- `profile.md`, `progress.md`, `publications.md`, `research-log.md`
+**`memory/` — gitignored, structured like `research-reva`; all files below have a committed `.example` counterpart:**
+
+```
+memory/
+  .gitignore
+  soul.md                        ← Scholar identity: name, school, batch, registration date,
+                                    research domain, career aspiration, learning style,
+                                    communication preferences, strengths, fears, motivators
+  soul.md.example                ← Template with annotated empty fields
+
+  ikigai.md                      ← 4-quadrant ikigai map: passion × strength × world-need × career goal;
+                                    current alignment score; last reviewed date
+  ikigai.md.example
+
+  tasks.md                       ← Active task list: milestone → weekly → daily micro-tasks;
+                                    status (todo/in-progress/done/blocked); due dates; blocker notes
+  tasks.md.example
+
+  wellbeing-log.md               ← Periodic check-in snapshots: date, mood, stress level,
+                                    workload rating, blockers, self-care actions taken
+  wellbeing-log.md.example
+
+  semantic/
+    research-pipeline.md         ← Active research threads, parked ideas, experiment log,
+                                    stage lifecycle per thread (ideation→published)
+    research-pipeline.md.example
+
+    publication-log.md           ← Paper title, venue, tier, submission date, status,
+                                    reviewer responses, acceptance/rejection notes
+    publication-log.md.example
+
+    progress-reports.md          ← Biannual progress report history: dates, guide remarks,
+                                    committee feedback, corrective actions
+    progress-reports.md.example
+
+    episodic/                    ← Session-by-session notes (auto-appended by session-closer workflow)
+```
 
 ---
 
@@ -118,12 +164,13 @@ plugins/phd-scholar/references/
 
 ---
 
-**Total file count:** ~50 files
+**Total file count:** ~75 files
 
 **Cross-plugin reuse (no duplication):**
 - `plugins/patent-generator/workflows/` + `lib/` → Stage 6 invoked by `patent-agent.md`
 - `plugins/research-reva/workflows/funding-hunt.md` + `manuscript-check.md` → adapt for Stages 4 & 7
 - `plugins/research-reva/rules/RESEARCH_ETHICS.md` + `GRANT_PROPOSAL_STANDARD.md` → adapt into rules layer
+- `plugins/kaizen-wellbeing-reva/` → referenced by `WELLBEING_STANDARD.md` and `wellness-companion.md` for deeper support escalation
 
 ---
 
@@ -137,6 +184,10 @@ plugins/phd-scholar/references/
 6. `/guide` trigger → `GUIDE_IDENTITY.md` + `guide-dashboard` workflow activates; scholar persona suppressed
 7. ECE school input → graceful placeholder message, no CSE content leaks
 8. `stage-tracker.md` with a registration date + 2 progress updates → correct milestone dates auto-computed
+9. `daily-planner.md` with a 3-month milestone → outputs ≥3 specific micro-tasks for the current week
+10. `blocker-breaker.md` with a conceptual blocker → routes to concept explainer; with a motivational blocker → routes to wellness-companion
+11. `wellness-companion.md` with burnout signals → outputs actionable nudges + escalation path to REVA counselling
+12. `ikigai-compass.md` at onboarding → generates a 4-quadrant ikigai map tied to research topic; at Stage 3 → confirms alignment still holds
 
 ---
 
